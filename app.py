@@ -195,13 +195,17 @@ if __name__ == '__main__':
     # Initialize vault
     vault.initialize()
     
-    # Get port from environment (Render uses PORT)
-    port = int(os.environ.get('PORT', 8000))
+    # Get port from environment variable or default to 10000 (Render default)
+    port = int(os.environ.get('PORT', 10000))
     
     # Run the T17+ system
     print(f"🚀 Starting {config.SYSTEM_NAME}")
     print(f"🔒 Version: {config.CERTNODE_VERSION}")
     print(f"🌐 Port: {port}")
     
-    app.run(host='0.0.0.0', port=port, debug=False)
-
+    try:
+        app.run(host='0.0.0.0', port=port, debug=False)
+    except Exception as e:
+        print(f"❌ Error starting server: {e}")
+        import traceback
+        traceback.print_exc()
