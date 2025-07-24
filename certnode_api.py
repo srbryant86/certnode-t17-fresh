@@ -462,9 +462,9 @@ class CertNodeAPI:
     def api_info(self):
         """GET / - API information."""
         return jsonify({
-            "name": "CertNode API",
-            "version": "1.0.0",
-            "description": "Nonfiction Logic Certification System",
+            "name": "CertNode T17+ API",
+            "version": "T17+ v2.0.0",
+            "description": "CertNode T17+ Logic Governance Infrastructure",
             "operator": self.config.OPERATOR,
             "documentation": "/api/v1/status",
             "health": "/health",
